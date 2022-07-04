@@ -1,9 +1,13 @@
 <script>
 import { onMounted, onUnmounted, ref } from '@vue/runtime-core'
+import NavigationBar from '../components/NavigationBar.vue'
+
 export default {
+    components: { NavigationBar},
     setup() {
         let descriptions = [
             'Fullstack Web Developer',
+            'Graphic Designer',
             'Aspiring UX/UI Designer',
             'Aspiring Indie Game Developer',
             'Aspiring Machine Learning Engineer'
@@ -45,11 +49,13 @@ export default {
 </script>
 
 <template>
+    
     <div id="home" class="d-flex align-items-center justify-content-center">
         <div class="container-fluid">
+            <NavigationBar/>
+            
             <div class="row text-center">
                 <h1 class="name">Mark Thaddeus Manuel</h1>
-                <p class="sub-title">mark.manuel.business@gmail.com</p>
             </div>
             <div class="row text-center">
                 <h3 class="sub-title">{{desc}}</h3>
@@ -79,7 +85,7 @@ export default {
 
     .name{
         color: var(--lighter-green);
-        font-size: 48px;
+        font-size: 4rem;
         font-family: var(--koulen);
         letter-spacing: 0.15em;
         animation-name: onLoad;
@@ -89,7 +95,7 @@ export default {
 
     .sub-title{
         color: var(--light-green);
-        font-size: 24px;
+        font-size: 2rem;
         font-family: var(--mukta);
         letter-spacing: 0.15em;
         animation-name: onLoad;
@@ -105,6 +111,16 @@ export default {
         animation-name: onLoad;
         animation-duration: 2s;
         animation-timing-function: ease;
+    }
+
+    @media screen and (max-width: 375px) {
+        .name{
+            font-size: 2rem;
+        }
+
+        .sub-title{
+            font-size: 1.5rem;
+        }
     }
 
     .icon:hover{
